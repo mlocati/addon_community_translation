@@ -15,7 +15,7 @@ class StatsTest extends ApiTest
         } catch (ApiClientResponseException $x) {
             $error = $x;
         }
-        if ($this->getConfigValue('api.access.getLocales') === 'everybody') {
+        if (self::$config->get('options.api.access.getLocales') === 'everybody') {
             $this->assertNull($error);
         } else {
             $this->assertNotNull($error);

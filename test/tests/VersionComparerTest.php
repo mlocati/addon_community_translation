@@ -3,9 +3,9 @@ namespace CommunityTranslation\Tests;
 
 use CommunityTranslation\Entity\Package\Version as PackageVersionEntity;
 use CommunityTranslation\Service\VersionComparer;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class VersionComparerTest extends PHPUnit_Framework_TestCase
+class VersionComparerTest extends TestCase
 {
     protected function getAllVersions()
     {

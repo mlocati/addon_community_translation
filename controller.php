@@ -145,6 +145,12 @@ class Controller extends Package
         }
     }
 
+    public function on_tests_start()
+    {
+        $this->registerServiceProvider();
+        $this->registerRoutes();
+    }
+
     /**
      * Register some commonly used service classes.
      */

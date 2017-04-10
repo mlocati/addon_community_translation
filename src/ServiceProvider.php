@@ -69,11 +69,13 @@ class ServiceProvider extends Provider
      */
     private function registerConfiguration(Application $app)
     {
-        $app->singleton('community_translation/config', function () use ($app) {
-            $pkg = $app->make(\Concrete\Core\Package\PackageService::class)->getClass('community_translation');
-
-            return $pkg->getFileConfig();
-        });
+        if (!$app->bound('community_translation/config')) {
+            $app->singleton('community_translation/config', function () use ($app) {
+                $pkg = $app->make(\Concrete\Core\Package\PackageService::class)->getClass('community_translation');
+    
+                return $pkg->getFileConfig();
+            });
+        }
 
         $app->singleton('community_translation/sourceLocale', function () use ($app) {
             $repo = $app->make(LocaleRepository::class);
